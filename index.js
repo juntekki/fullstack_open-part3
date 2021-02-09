@@ -12,6 +12,9 @@ morgan.token('body', (req) => {
   const isPostMethod = (req) => req.method === 'POST'
   const postFormat = ':method :url :status :res[content-length] - :response-time ms :body'
 
+
+  app.use(express.static('build'))
+
   app.use(morgan('tiny', {
     skip: isPostMethod
   }))
